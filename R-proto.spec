@@ -4,7 +4,7 @@
 #
 Name     : R-proto
 Version  : 0.3
-Release  : 17
+Release  : 18
 URL      : http://cran.r-project.org/src/contrib/proto_0.3-10.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/proto_0.3-10.tar.gz
 Summary  : Prototype object-based programming
