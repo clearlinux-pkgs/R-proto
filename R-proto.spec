@@ -4,16 +4,21 @@
 #
 Name     : R-proto
 Version  : 1.0.0
-Release  : 55
+Release  : 56
 URL      : http://cran.r-project.org/src/contrib/proto_1.0.0.tar.gz
 Source0  : http://cran.r-project.org/src/contrib/proto_1.0.0.tar.gz
 Summary  : Prototype Object-Based Programming
 Group    : Development/Tools
 License  : GPL-2.0
+Requires: R-assertthat
+BuildRequires : R-assertthat
 BuildRequires : buildreq-R
 
 %description
-called prototype-based, rather than class-based object oriented ideas.
+# Proto
+[![Travis-CI Build Status](https://travis-ci.org/hadley/proto.svg?branch=master)](https://travis-ci.org/hadley/proto)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/proto)](https://CRAN.R-project.org/package=proto)
+[![Coverage Status](https://img.shields.io/codecov/c/github/hadley/proto/master.svg)](https://codecov.io/github/hadley/proto?branch=master)
 
 %prep
 %setup -q -c -n proto
@@ -23,11 +28,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1538582489
+export SOURCE_DATE_EPOCH=1552782203
 
 %install
+export SOURCE_DATE_EPOCH=1552782203
 rm -rf %{buildroot}
-export SOURCE_DATE_EPOCH=1538582489
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -62,8 +67,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library proto|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
+R CMD check --no-manual --no-examples --no-codoc  proto || :
 
 
 %files
@@ -101,3 +105,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/proto/help/proto.rdx
 /usr/lib64/R/library/proto/html/00Index.html
 /usr/lib64/R/library/proto/html/R.css
+/usr/lib64/R/library/proto/tests/testthat.R
+/usr/lib64/R/library/proto/tests/testthat/test-getting.R
+/usr/lib64/R/library/proto/tests/testthat/test-printing.R
