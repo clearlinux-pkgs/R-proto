@@ -4,39 +4,35 @@
 #
 Name     : R-proto
 Version  : 1.0.0
-Release  : 65
+Release  : 66
 URL      : https://cran.r-project.org/src/contrib/proto_1.0.0.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/proto_1.0.0.tar.gz
 Summary  : Prototype Object-Based Programming
 Group    : Development/Tools
 License  : GPL-2.0
-BuildRequires : R-assertthat
 BuildRequires : buildreq-R
-BuildRequires : util-linux
 
 %description
-# Proto
-[![Travis-CI Build Status](https://travis-ci.org/hadley/proto.svg?branch=master)](https://travis-ci.org/hadley/proto)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/proto)](https://CRAN.R-project.org/package=proto)
-[![Coverage Status](https://img.shields.io/codecov/c/github/hadley/proto/master.svg)](https://codecov.io/github/hadley/proto?branch=master)
+called prototype-based, rather than class-based object oriented ideas.
 
 %prep
 %setup -q -c -n proto
+cd %{_builddir}/proto
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571879038
+export SOURCE_DATE_EPOCH=1589537497
 
 %install
-export SOURCE_DATE_EPOCH=1571879038
+export SOURCE_DATE_EPOCH=1589537497
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
-export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
+export FCFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
+export FFLAGS="$FFLAGS -O3 -flto -fno-semantic-interposition "
 export CXXFLAGS="$CXXFLAGS -O3 -flto -fno-semantic-interposition "
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
